@@ -913,7 +913,7 @@ public final class SSZ {
 
   static void encodeULongIntListTo(int bitLength, long[] elements, Consumer<byte[]> appender) {
     checkArgument(bitLength % 8 == 0, "bitLength must be a multiple of 8");
-    appender.accept(listLengthPrefix(elements.length, bitLength / 8));
+    //appender.accept(listLengthPrefix(elements.length, bitLength / 8));
     for (long value : elements) {
       appender.accept(encodeULongToByteArray(value, bitLength));
     }
@@ -921,7 +921,7 @@ public final class SSZ {
 
   static void encodeULongIntListTo(int bitLength, List<Long> elements, Consumer<byte[]> appender) {
     checkArgument(bitLength % 8 == 0, "bitLength must be a multiple of 8");
-    appender.accept(listLengthPrefix(elements.size(), bitLength / 8));
+    //appender.accept(listLengthPrefix(elements.size(), bitLength / 8));
     for (long value : elements) {
       appender.accept(encodeULongToByteArray(value, bitLength));
     }
